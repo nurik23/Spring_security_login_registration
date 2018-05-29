@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Atasozler page</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/home.css}" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<div class="container">
+
+	<form th:action="@{/logout}" method="get">
+		<button class="btn btn-md btn-danger btn-block" name="registration"
+				type="Submit">Logout</button>
+	</form>
+
+	<div class="panel-group" style="margin-top:40px">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<span th:utext="${userName}"></span>
+			</div>
+			<div class="panel-body">
+				<table border="1">
+					<tr>
+						<th>id</th>
+						<th>KG</th>
+						<th>TR</th>
+						<th>maining</th>
+					</tr>
+					<c:forEach items="${ATASOZLERI}" var="ATASOZLER">
+						<tr>
+							<td>${ATASOZLER.id}</td>
+							<td>${ATASOZLER.KG}</td>
+							<td>${ATASOZLER.TR}</td>
+							<td>${ATASOZLER.maining}</td>
+							<td><a href="/getATASOZLERI?id=${ATASOZLER.id}">View details</a></td>
+						</tr>
+					</c:forEach>
+				</table>
+						</div>
+			<p class="admin-message-text text-center" th:utext="${adminMessage}"></p>
+		</div>
+	</div>
+
+</div>
+</body>
+</html>
