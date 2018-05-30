@@ -32,15 +32,14 @@
 						<th>TR</th>
 						<th>maining</th>
 					</tr>
-					<c:forEach items="${ATASOZLERI}" var="ATASOZLER">
-						<tr>
-							<td>${ATASOZLER.id}</td>
-							<td>${ATASOZLER.KG}</td>
-							<td>${ATASOZLER.TR}</td>
-							<td>${ATASOZLER.maining}</td>
-							<td><a href="/getATASOZLERI?id=${ATASOZLER.id}">View details</a></td>
+
+						<tr th:each="ATASOZLER : ${ATASOZLERI}">
+							<td th:utext="${ATASOZLER.getid()}"></td>
+							<td th:utext="${ATASOZLER.getKG()}"></td>
+							<td th:utext="${ATASOZLER.getTR()}"></td>
+							<td th:utext="${ATASOZLER.getmaining()}"></td>
+							<td><a th:href="'/getATASOZLERI?id=' + ${ATASOZLER.getid()}">View details</a></td>
 						</tr>
-					</c:forEach>
 				</table>
 						</div>
 			<p class="admin-message-text text-center" th:utext="${adminMessage}"></p>

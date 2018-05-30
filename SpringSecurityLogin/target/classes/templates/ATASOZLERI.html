@@ -26,25 +26,26 @@
 			</div>
 			<div class="panel-body">
 				<table>
-					<tr>
-						<th>Field</th>
+					<tr th:each="ATASOZLER : ${ATASOZLERI}">
+
+					<th>Field</th>
 						<th>Value</th>
 					</tr>
 					<tr>
 						<td>ID:</td>
-						<td>${ATASOZLERI.id}</td>
+						<td th:utext="${ATASOZLERI.getid()}"></td>
 					</tr>
 					<tr>
 						<td>KG:</td>
-						<td>${ATASOZLERI.KG}</td>
+						<td th:utext="${ATASOZLERI.getKG()}"></td>
 					</tr>
 					<tr>
 						<td>TR:</td>
-						<td>${ATASOZLERI.TR}</td>
+						<td th:utext="${ATASOZLERI.getTR()}"></td>
 					</tr>
 					<tr>
 						<td>maining:</td>
-						<td>${ATASOZLERI.maining}</td>
+						<td th:utext="${ATASOZLERI.getmaining()}"></td>
 					</tr>
 				</table>
 			</div>
